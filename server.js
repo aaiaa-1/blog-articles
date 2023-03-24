@@ -10,12 +10,12 @@ app.set('view engine','ejs')
 app.get('/', (req, res) => {
     const articles = [{
         title:'Test Article Title',
-        createdAt: Date.now(),
+        createdAt: new Date(),
         description : 'Test Article Description'
     },
     {
         title:'Test Article Title 2',
-        createdAt: Date.now(),
+        createdAt: new Date(),
         description : 'Test Article Description 2'
     }]
     res.render('index' ,{articles: articles})
