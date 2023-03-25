@@ -1,3 +1,4 @@
+const { response } = require('express');
 const article= require('../models/article');
 
     const addArticle =async (req,res)=> {
@@ -7,11 +8,13 @@ const article= require('../models/article');
                 description: req.body.description,
                 markdown: req.body.markdown
             });
-            const dataSave =  await newArticle.save();
-            res.send(dataSave).status(200);
+            const dataSave =  await newArticle.save()
+            res.redirect('/')
 
         }catch(err){
             res.status(500).send(err);
+            //response.render('articles/new' , {article: dataSave})
+            // ?????????????????????
         }
     }
 
