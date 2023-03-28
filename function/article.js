@@ -13,8 +13,7 @@ const article= require('../models/article');
 
         }catch(err){
             res.status(500).send(err);
-            //response.render('articles/new' , {article: dataSave})
-            // ?????????????????????
+            res.render('articles/new', {article: article} )
         }
     }
 
