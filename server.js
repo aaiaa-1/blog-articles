@@ -6,6 +6,7 @@ const parser        = require('body-parser')
 const morgan        = require('morgan')
 const cors        = require('cors')
 const Article =require ('./models/article')
+const methodOverride = require('method-override')
 
 //connect to the database
 mongoose.connect('mongodb://localhost/blog')
@@ -16,6 +17,7 @@ app.use(express.urlencoded({extended: false})) /*this makes express able to acce
                                         
 app.use(parser.urlencoded({extended: false}))
 app.use(parser.json())
+app.use(methodOverride('_method'))
 
 app.use(morgan("tiny"))
 app.use(cors())
